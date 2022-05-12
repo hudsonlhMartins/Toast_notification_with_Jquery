@@ -139,6 +139,20 @@ body {
   background: #4CAF50 !important;
 }
 
+/*=========== TOAST Warning  ===============*/
+.toast.type-warning {
+  border-left: 5px solid #FFC107 !important;
+}
+
+.toast.type-warning .icon svg {
+  color: #FFC107 !important;
+  font-size: 28px !important;
+}
+
+.toast.type-warning .progress::before {
+  background: #FFC107 !important;
+}
+
 @-webkit-keyframes progress {
   100% {
     right: 100%;

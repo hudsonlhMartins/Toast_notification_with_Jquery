@@ -9,6 +9,9 @@ $('#open').click(function() {
 $('#sucess').click(function() {
     show_toast({title: 'Sucesso', message: 'Salvo com sucesso', time: 3, type: 'success'})
 })
+$('#warning').click(function() {
+    show_toast({title: 'Aviso', message: 'não esta disponivel', time: 30, type: 'warning'})
+})
 
 /*ESPERANDO TITLE, MENSSAGEM, TIME E TYPE*/
 function show_toast({title, message, time, type}) {
@@ -42,6 +45,17 @@ function show_toast({title, message, time, type}) {
             $(toast).addClass('type-error');
             $(toast).removeClass('type-success');
             $(toast).removeClass('type-warning');
+
+            break
+        case 'warning':
+            var existMoreone = $(container_icon).find('svg').length;
+            if (existMoreone > 0) {
+                $(container_icon).find('svg').remove();
+            }
+            $(container_icon).prepend('<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M228.9 79.9L51.8 403.1C40.6 423.3 55.5 448 78.9 448h354.3c23.3 0 38.2-24.7 27.1-44.9L283.1 79.9c-11.7-21.2-42.5-21.2-54.2 0zM273.6 214L270 336h-28l-3.6-122h35.2zM256 402.4c-10.7 0-19.1-8.1-19.1-18.4s8.4-18.4 19.1-18.4 19.1 8.1 19.1 18.4-8.4 18.4-19.1 18.4z"></path></svg>')
+            $(toast).removeClass('type-error');
+            $(toast).removeClass('type-success');
+            $(toast).addClass('type-warning');
 
             break
     }
